@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Broadcast Messages</h1>
+    <input type="text" id="message" placeholder="Type your message here">
+    <button id="send">Send</button>
+    <ul id="messages"></ul>
+    <script>
+      const socket = io('http://localhost:3000',{ transports : ['websocket'] });
+
+      // Handle incoming messages
+      socket.on('message', message => {
+        const li = document.createElement('li');
+        li.textContent = message;
+        document.getElementById('messages').appendChild(li);
+      });
+
+      // Handle form submissions
+      document.getElementById('send').addEventListener('click', () => {
+        const message = document.getElementById('message').value;
+        socket.emit('broadcast', message);
+        document.getElementById('message').value = '';
+      });
+    </script>
+  </body>
+</html>

@@ -1,10 +1,14 @@
-const express=require('express');
+const express = require('express');
 const router=express.Router();
-const{register,signIn} = require('../controller/users.controller')
+const{register,signIn} = require('../controller/users.controller');
+const {alertMessage}=require('../controller/alert.controller')
 
 router.get('/register',register);
 
 router.get('/sign-in',signIn);
+
+router.post('/messages',alertMessage);
+
 
 router.use((req, res, next) => {
     res.status(404).send({
