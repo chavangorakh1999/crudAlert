@@ -9,11 +9,7 @@
 
 ### Steps to start this app
 
-- Create ```.env``` file from ```.env.example``` file
-- ```cd``` Server and install modules with ```npm install```.
-- To start the application use ```npm start```.
-
-- Open html file in browser by copying path.
-
+- Just make sure you have docker compose
+- Run ```docker compose up -d ```
 - Generate token from ```generate-token``` api.
 - Perform CRUD using this token across the microsevice. 
