@@ -24,7 +24,6 @@ const io = socketIO(server,{cors: {
 global.io=io;
 
 
-
 // Socket.IO event handlers
 io.on('connection', socket => {
     console.log(`New client connected: ${socket.id}`);

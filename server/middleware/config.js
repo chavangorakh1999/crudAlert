@@ -26,8 +26,7 @@ module.exports={
             response_code.error = {
               message: 'Authentication Token Invalid.'
             }
-            res.status(auth_status).send(response_code.unauthorized())
-    
+            res.status(auth_status).send(response_code.unauthorized())   
             // Throw an error just in case anything goes wrong with verification
             // throw new Error(err);
           }

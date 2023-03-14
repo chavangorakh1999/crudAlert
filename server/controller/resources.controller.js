@@ -64,7 +64,7 @@ module.exports= {
             }
             res.status(request_status).send(response_code.badRequest());
         }else{      
-            Resources_model.updateOne({name:name},{$set:{name:updated_name}},{upsert:true})
+            Resources_model.updateOne({name:name},{$set:{name:updated_name,updated_at:new Date()}},{upsert:true})
             .then((resource)=>{
                 response_code.message="Resource updated successfully";
                 response_code.data=resource;

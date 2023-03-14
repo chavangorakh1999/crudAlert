@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/crudAlertDB',
+mongoose.connect(process.env.CONNECTIONSTRING,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
