@@ -1,6 +1,6 @@
 ### CrudsAlert 
 
-- [x] API to register user/sign-in
+- [x] API to Generate token
 - [x] Setup mongodb 
 - [x] create minimal client UI
 - [x] setup socket.io for emmitting the create/update/delete resources 

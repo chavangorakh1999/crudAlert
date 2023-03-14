@@ -8,10 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Broadcast Messages</h1>
-    <input type="text" id="message" placeholder="Type your message here">
-    <button id="send">Send</button>
-    <ul id="messages"></ul>
+    <div>
+        <h1>Broadcast Messages</h1>
+        <input type="text" id="message" placeholder="Type your message here">
+        <button id="send">Send</button>
+        <ul id="messages"></ul>
+    </div>
+    <div>
+        <button id="joinroom">Join room</button>
+    </div>
+    
     <script>
       const socket = io('http://localhost:3000',{ transports : ['websocket'] });
 
@@ -26,6 +32,12 @@
       document.getElementById('send').addEventListener('click', () => {
         const message = document.getElementById('message').value;
         socket.emit('broadcast', message);
+        document.getElementById('message').value = '';
+      });
+
+      document.getElementById('joinroom').addEventListener('click', () => {
+        const message ="room1";
+        socket.emit('join', message);
         document.getElementById('message').value = '';
       });
     </script>
