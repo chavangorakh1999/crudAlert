@@ -14,9 +14,11 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.1",
     "nodemon": "^2.0.21",
     "path": "^0.12.7",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.6.1",
+    "validatorjs": "^3.22.1"
   }
 }

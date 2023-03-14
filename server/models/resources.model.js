@@ -5,7 +5,8 @@ const Schema=mongoose.Schema;
 let schema= new Schema({
     name:{
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     created_at: {
         type: Date,

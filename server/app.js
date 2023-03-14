@@ -2,6 +2,7 @@ const path = require('path');
 require('dotenv').config({
 	path: path.join(__dirname, '.env')
 });
+const mongoose=require('mongoose')
 const cors = require('cors');
 const express = require('express')
 const bodyParser = require('body-parser');
@@ -15,6 +16,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cors());
+
+mongoose.connect('mongodb://localhost:27017/crudAlertDB',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 app.use('/api',routes);
 

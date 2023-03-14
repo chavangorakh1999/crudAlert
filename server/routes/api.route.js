@@ -1,13 +1,22 @@
 const express = require('express');
 const router=express.Router();
-const{register,signIn} = require('../controller/users.controller');
-const {alertMessage}=require('../controller/alert.controller')
+const{generateToken} = require('../controller/users.controller');
+const {createResource,updateResource,deleteResource}=require('../controller/resources.controller')
+const {readResource}=require('../view/resources.view')
+const {alertMessage} = require('../controller/alert.controller')
+const {validateToken}=require('../middleware/config')
 
-router.get('/register',register);
+router.post('/generate-token',generateToken);
 
-router.get('/sign-in',signIn);
+router.post('/create-resource',validateToken,createResource);
 
-router.post('/messages',alertMessage);
+router.post('/update-resource',validateToken,updateResource);
+
+router.post('/send-broadcast',validateToken,alertMessage);
+
+router.post('/delete-resource',validateToken,deleteResource);
+
+router.get('/read-resource',validateToken,readResource);
 
 
 router.use((req, res, next) => {

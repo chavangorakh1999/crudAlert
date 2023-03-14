@@ -27,7 +27,11 @@ global.io=io;
 
 // Socket.IO event handlers
 io.on('connection', socket => {
-  console.log(`New client connected: ${socket.id}`);
+    console.log(`New client connected: ${socket.id}`);
+
+  socket.on('join', room=>{
+    socket.join(room);
+ });
 
   // Handle broadcast messages
   socket.on('broadcast', message => {
